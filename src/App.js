@@ -26,6 +26,14 @@ function App() {
         <Navbar a="textPad" mode={mode} togglemode={togglemode}></Navbar>
         <Routes>
           <Route
+            path="/"
+            element={
+              <div className="container my-3">
+                <Textform heading="Enter  text to analyze"></Textform>
+              </div>
+            }
+          />
+          <Route
             path="/Home"
             element={
               <div className="container my-3">
