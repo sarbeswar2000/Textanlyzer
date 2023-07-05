@@ -20,6 +20,9 @@ export default function Textform(props) {
   const clearonclick = () => {
     setText("");
   };
+  const handleOncopy = () => {
+    navigator.clipboard.writeText(Text);
+  };
 
   return (
     <div>
@@ -33,14 +36,17 @@ export default function Textform(props) {
           rows="8"
         ></textarea>
       </div>
-      <button className="btn btn-primary mx-2" onClick={handleUpClick}>
+      <button className="btn btn-primary mx-2 my-1" onClick={handleUpClick}>
         convert to Uppercase
       </button>
-      <button className="btn btn-primary mx-2" onClick={handleLowClick}>
+      <button className="btn btn-primary mx-2 my-1" onClick={handleLowClick}>
         convert to lowercase
       </button>
-      <button className="btn btn-primary mx-2" onClick={clearonclick}>
+      <button className="btn btn-primary mx-2 my-1" onClick={clearonclick}>
         clear
+      </button>
+      <button className="btn btn-primary mx-2 my-1" onClick={handleOncopy}>
+        copyText
       </button>
       {/* <button className="btn btn-primary mx-2" onClick={changeToOthercase}>
         buttton click
@@ -50,7 +56,12 @@ export default function Textform(props) {
         <b>
           <p>
             {" "}
-            {Text.split(" ").length} words and {Text.length} character
+            {
+              Text.split(" ").filter((element) => {
+                return element.length != 0;
+              }).length
+            }
+            words and {Text.length} character
           </p>
         </b>
         <p>{0.008 * Text.split(" ").length} minutes</p>
