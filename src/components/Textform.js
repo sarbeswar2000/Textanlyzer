@@ -9,7 +9,7 @@ export default function Textform(props) {
   };
 
   const handleLowClick = () => {
-    console.log("uppercase was clicked" + Text);
+    console.log("uppercase was clicked" + Text); 
     let newText = Text.toLowerCase();
     setText(newText);
   };
